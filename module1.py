@@ -1,22 +1,14 @@
-f = open ('Perepis.txt','r')
-names = f.read().splitlines()
+with open ('Perepis.txt','r') as f:
+    names = f.read().splitlines()
 
-surname = [0 for i in range (31)]
-name = [0 for i in range (31)]
-patron =  [0 for i in range (31)]
-date  =   [0 for i in range (31)]
 k = 0
-ms = []
 
-
-for i in range(31):
-        surname[i],name[i],patron[i],date[i] = names[i].split()
-        if (int((date[i][6:])) >= 1978):
-            ms.append(str(surname[i]+' '+date[i]))
-
+for i in names:
+        surname,name,patron,date = i.split()
+        if (int((date[6:])) >= 1978):
+            print(str(surname+' '+date ))
             k = k+1
 
-print('\n'.join(ms))
 print()
 print('число жителей - ', k)
 
@@ -26,10 +18,12 @@ b = 1979
 print()
 print()
 
-for i in range(31):
-        surname[i],name[i],patron[i],date[i] = names[i].split()
-        if (int(date[i][6:])) in (list(range(a,b))):
-            print (names[i])
+for i in names:
+        surname,name,patron,date = i.split()
+        if (int(date[6:])) in (list(range(a,b))):
+            print (i)
 
-f.close()
+
+
+
 
