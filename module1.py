@@ -31,5 +31,5 @@ for i in range(31):
         if (int(date[i][6:])) in (list(range(a,b))):
             print (names[i])
 
-
+f.close()
 
